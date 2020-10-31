@@ -1,6 +1,6 @@
 ###### This is the file where you save your R code that produces the objects (graphs, tables) that you want to embed into 
 # your assignment.  Make sure that there are no errors when you source this file before sourcing it from assignment3.Rmd file.
-# To show you how it is done I have included code below that answers questions 1 and 2.
+# To show you how it is done I have included code below that answers question 3.
 
 rm(list=ls()) #makes sure that your work environment is clean.
 library("tidyverse") #we use functions from this library.
