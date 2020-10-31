@@ -1,6 +1,6 @@
 # 381assignment4
 
-If and only if you insist on using Excel download a zip file containing the assignment and folder publicdata at https://github.com/rpmartin/381assignment4
+If and only if you insist on using Excel click on the green code button above and download a zip file containing the assignment and folder publicdata.
 
 Or, if you are going to use R (which is preferred), Instructions on the installation of R, Rstudio, etc can be found here:
 
@@ -8,9 +8,9 @@ https://bright.uvic.ca/d2l/le/content/75904/viewContent/694287/View
 
 Once you have everything installed, here is how you get started on assignment 4.
 
-1) go to https://github.com/rpmartin/381assignment4 (good job, you are already here)
+1) take a deep breath.
 
-2) click on the green button labelled code.
+2) click on the green button above labelled code.
 
 3) click on the clipboard icon to copy address to clipboard (the icon is to the right of the text box.)
 
