@@ -16,6 +16,9 @@ within_group_variability <- mydf%>%
   group_by(whichgroup, round, rematching)%>%
   summarise(variability_contributions=sd(choice))
 ####################################
+# you should be able to recycle code from assignment3.R for plots 1 and 2.)
+# https://github.com/rpmartin/381assignment3/
+##########################################################
 (third_plot <- mydf %>% 
     ggplot(aes(x=choice, y =factor(round), fill = ..x..)) +
     geom_density_ridges_gradient(scale = 1.75, rel_min_height = 0.01, gradient_lwd = 1.) +
