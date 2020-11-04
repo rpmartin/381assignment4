@@ -83,7 +83,7 @@ third_plot
 
 # (10 marks)
 
-**Create a scatterplot where contribution is on the x axis, profit is on the y axis, and the data points are different colours for the different treatments.  If you are using R, use aesthetics `x=contribution`, `y=profit`, `colour=rematching`.Use transparency (`alpha=.25`) and `geom_jitter` to avoid overplotting.  Add in the best linear approximation `geom_smooth(method="lm")` for each treatment.**
+**Create a scatterplot where choice (aka effort) is on the x axis, profit is on the y axis, and the data points are different colours for the different treatments.  If you are using R, use aesthetics `x=choice`, `y=profit`, `colour=rematching`.Use transparency (`alpha=.25`) and `geom_jitter` to avoid overplotting.  Add in the best linear approximation `geom_smooth(method="lm")` for each treatment.**
 
 
 ```{r fourth_chunk,warning=FALSE}
