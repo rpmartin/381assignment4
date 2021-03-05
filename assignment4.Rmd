@@ -1,0 +1,130 @@
+---
+title: "Assignment 4"
+author: "put your name here"
+output: 
+  html_document:
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,message=FALSE)
+source("assignment4.R")
+```
+**Section #: `r paste("0",section,sep="")`**
+
+
+Students must abide by  [UVic
+  academic regulations](https://www.uvic.ca/calendar/undergrad/index.php#/policy/Sk_0xsM_V?bc=true&bcCurrent=08%20-%20Policy%20on%20Academic%20Integrity&bcGroup=Undergraduate%20Academic%20Regulations&bcItemType=policies)
+ and observe standards of scholarly integrity
+(i.e. no plagiarism or cheating). Therefore, this assignment must be
+taken individually and not with a friend, classmate, or group. You are
+also prohibited from sharing any information about the assignment with
+others. I affirm that I will not give or receive any aid on this assignment 
+and that all work will be my own. **name here**
+
+
+Many aspects of the environment are public goods.  Public goods are nonrivalrous and nonexcludable.  Nonrivalrous means that you deriving benefit from the good does not diminish the amount of the good available for others. Nonexcludable means that there is no way to prevent people from deriving benefits from the good. Examples of environmental public goods include obvious things like the ozone layer, but can also be more subtle like the absence of litter in a park. 
+
+In experiment 4 we saw that the health of a society is also public good, where individuals can take costly actions to contribute. Experiment 4 put you in a situation where you faced a tradeoff between a private good (having fun) and a public good (the health of your society). Your task was to choose a costly effort level that would impact the transmission of a virus. Effort involves things like wearing a mask, washing your hands and staying socially isolated. Obviously these things are un-fun: we assume that effort reduces fun 1 for 1. Of course the flip-side is that these actions are what keeps the virus under control. We assume that public health is 1.5 times the average effort in your group, and  **all** members of your group benefited equally from public health. Thus, individual 1's payoff was:
+
+$\pi_1=10-e_1+1.5\times\frac{e_1+...+e_n}{n}$
+
+where 10 is the maximum effort you can exert: you can think of this as your endowment.  
+
+The treatments determined how subjects were rematched between rounds.  In the `not` treatment subjects played all 20 rounds with the same group.  In the `randomly` treatment subjects were randomly rematched for each round.  Finally in the `assortatively` treatment subjects played each round with players who had made similar contributions in the previous round.  Higher payoffs can be sustained in a public goods game if behaviour can be coordinated (each member of the group contributing a similar amount.)  These treatments were designed to influence how easy it would be to coordinate behaviour. 
+
+
+# (10 marks)
+
+**If I increased your endowment from 10 to 11, but you kept your effort level constant, by how much would your payoff increase? If instead you responded by increasing your effort by one unit, by how much would your payoff increase (assume 3 people in your group)?  If a player is maximizing their own payoff (as given by the equation above) how much effort should they exert? Does your answer depend on group size? Does your answer depend on round number? Does your answer depend on the effort level of others?**
+
+
+  
+# (10 marks)
+
+**Suppose that each group had a "government", which could mandate effort levels: (all members have to exert the same effort) Would this  government intervention increase player payoffs relative to the equilibrium prediction? What would be the optimal mandated effort level?**
+
+
+
+
+# (10 marks)
+
+**Use dataframe `mydf` and functions `ggplot()`, `geom_boxplot()`, and `geom_jitter()` to visualize how effort `choice` differs by treatment `rematching`.**
+
+```{r first_chunk}
+#first_plot
+```
+
+# (10 marks)
+
+**Copy and paste your code for first_plot, and rename it `second_plot`.  Add aesthetics `frame=round` and `label=oneid`.  Get rid of the geom_jitter() layer and add two `geom_text` layers. In the first `geom_text()` layer set `data=filter(mydf,oneid!=x)` where `x` is either the last 5 digits of your student ID (if you participated in section 1's experiment) OR 51724. Set options  `position=position_jitter(),size=2` for this layer.  In the second `geom_text()` layer set `data=filter(mydf,oneid==x)` where `x` is is either the last 5 digits of your student ID (if you participated in section 1's experiment) OR 51724. Set options  `position=position_jitter(),size=3, colour="red"` for this layer. Finally, cut and paste the following code into your assignment4.R file**
+
+```{r eval=FALSE, echo=TRUE}
+(second_plot <- ggplotly(second_plot)%>%
+    animation_opts(1500,transition = 100)%>%
+    hide_legend()%>% 
+    config(displayModeBar = F))
+
+```
+
+
+```{r second_chunk}
+#second_plot
+```
+
+# (10 marks)
+
+**What do you observe in the above plot?  Why do you think this is the case?**
+
+
+# (0 marks)
+
+**Create density plots for effort levels where  x=`choice` y=`round` and facet by `rematching`.**
+
+```{r third_chunk}
+third_plot
+```
+
+# (10 marks)
+
+**In general, what do density plots show us? Specifically in this case, what do you see above?**
+
+
+
+# (10 marks) 
+
+
+**Use function `dom_plot()` to perform a pairwise comparison between profits in treatments `assortatively` and `not`. Note that the function `dom_plot()` only allows comparison between two groups, so you will need to `filter()` the data set to exclude one group.
+Function `dom_plot()` has arguments 1) `data`, 2) `group_var`, 3) `measure_var`, so the inputs you feed it will be 1) a filtered version of `mydf`, 2) `rematching`, 3) `profit`.  Do *not* put quotes around any of the inputs to `dom_plot()`.**
+
+
+```{r fourth_chunk,warning=FALSE}
+#fourth_plot
+```
+
+# (10 marks) 
+
+**Use the function dom_plot() to perform pairwise comparisons of profits between the treatments Not vs. Randomly:**
+
+```{r fifth_chunk,warning=FALSE}
+#fifth_plot
+```
+
+# (10 marks) 
+
+**Use the provided dom_plot() to perform pairwise comparisons of profits between the treatments Assortatively vs. Randomly:**
+
+```{r sixth_chunk,warning=FALSE}
+#sixth_plot
+```
+
+# (10 marks) 
+
+**Use the dataframe `within_group_variability` and functions `ggplot()` `geom_boxplot()` and `geom_jitter()` to visualize how within-group variability of effort (variable `variability_contribution`) differed between treatments.**
+
+```{r seventh_chunk,warning=FALSE}
+#seventh_plot
+```
+
+
+
