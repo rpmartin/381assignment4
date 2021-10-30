@@ -1,0 +1,117 @@
+---
+title: "Assignment 4"
+author: "Y. Name better than Your Name, do not put ID"
+output: 
+  html_document:
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,message=FALSE)
+source("ass4_2021_fall_solutions.R")
+```
+**Section #: `r paste("0",section,sep="")`**
+
+
+Students must abide by  [UVic
+  academic regulations](https://www.uvic.ca/calendar/undergrad/index.php#/policy/Sk_0xsM_V?bc=true&bcCurrent=08%20-%20Policy%20on%20Academic%20Integrity&bcGroup=Undergraduate%20Academic%20Regulations&bcItemType=policies)
+ and observe standards of scholarly integrity
+(i.e. no plagiarism or cheating). Therefore, this assignment must be
+taken individually and not with a friend, classmate, or group. You are
+also prohibited from sharing any information about the assignment with
+others. I affirm that I will not give or receive any aid on this assignment 
+and that all work will be my own. **name here**
+
+
+Many aspects of the environment are public goods.  Public goods are nonrivalrous and nonexcludable.  Nonrivalrous means that you deriving benefit from the good does not diminish the amount of the good available for others. Nonexcludable means that there is no way to prevent people from deriving benefits from the good. Examples of environmental public goods include obvious things like the ozone layer, but can also be more subtle like the absence of litter in a park. 
+
+In experiment 4 we saw that the health of a society is also public good, where individuals can take costly actions to contribute. Experiment 4 put you in a situation where you faced a trade-off between a private good (having fun) and a public good (the health of your society). Your task was to choose a costly effort level that would impact the transmission of a virus. Effort involves things like wearing a mask, washing your hands and staying socially isolated. Obviously these things are un-fun: we assume that effort reduces fun 1 for 1. Of course the flip-side is that these actions are what keeps the virus under control. We assume that public health is 1.5 times the average effort in your group, and  **all** members of your group benefited equally from public health. Thus, individual 1's payoff was:
+
+$\pi_1=10-e_1+1.5\times\frac{e_1+...+e_n}{n}$
+
+where 10 is the maximum effort you can exert: you can think of this as your endowment.  
+
+The treatments determined how subjects were rematched between rounds.  In the `not` treatment subjects played all 20 rounds with the same group.  In the `randomly` treatment subjects were randomly rematched for each round.  Finally in the `assortatively` treatment subjects played each round with players who had made similar contributions in the previous round.  Higher payoffs can be sustained in a public goods game if behaviour can be coordinated (each member of the group contributing a similar amount.)  These treatments were designed to influence how easy it would be to coordinate behaviour. 
+
+
+# (10 marks)
+
+**If I increased your endowment from 10 to 11, but you kept your effort level constant, by how much would your payoff increase? If instead you responded by increasing your effort by one unit, by how much would your payoff increase (assume 3 people in your group)?  If a player is maximizing their own payoff (as given by the equation above) how much effort should they exert? Does your answer depend on group size? Does your answer depend on round number? Does your answer depend on the effort level of others?**
+
+
+# (10 marks)
+
+**Suppose that each group had a "government", which could mandate effort levels: (all members have to exert the same effort) Would this  government intervention increase player payoffs relative to the equilibrium prediction? What would be the optimal mandated effort level?**
+
+# (5 marks)
+
+**Use dataframe `mydf` and functions `ggplot()`, `geom_boxplot()`, and `geom_jitter()` to visualize how effort `choice` differs by treatment `rematching`. Use `labs()` to give the plot an informative title.**
+
+```{r first_chunk}
+#first_plot
+```
+
+# (10 marks)
+
+**Use dataframe `mydf` and functions `ggplot()`, `geom_boxplot()`, and `geom_jitter()` to visualize how effort `choice` varies across `round`.  Use function `facet_wrap(~rematching)` to create a different facet for each treatment. Use `labs()` to give the plot an informative title.**
+
+```{r second_chunk}
+#second_plot
+```
+
+# (10 marks)
+
+**What differences do you notice in the first round choices across the three treatments?**
+
+# (10 marks)
+
+**In your .R file, create a new dataframe called `within_group_variability` by taking dataframe `mydf` THEN `group_by` variables `whichgroup`, `round`, `rematching` THEN `summarise` by calculating `variability_contributions=sd(choice)`. Include a *copy* of your code in the chunk below (note eval=FALSE) **
+
+```{r echo=TRUE, eval=FALSE}
+
+```
+
+# (10 marks)
+
+**Use dataframe `within_group_variability` and functions `ggplot()`, `geom_boxplot()`, and `geom_jitter()` to visualize how `variability_contributions` differs by treatment `rematching`. Use `labs()` to give the plot an informative title. Make use of function `fix_gg_labs()` to fix the labels of `third_plot`.**
+
+```{r third_chunk, warning=FALSE}
+
+```
+
+
+# (10 marks)
+
+**Randomization of which treatment each subject receives is meant to ensure that subjects are comparable.  Above we saw some evidence that in the first round, prior to being re-matched the subjects in the `randomly` treatment made much larger choices than the other two treatments.  This suggests that the subjects were not in fact comparable prior to receiving their treatments.  One way we can address this is look at choices *relative* to the choice made in the first round.  To this end, create a new dataframe called `relative_to_r1` by taking dataframe `mydf` THEN `group_by()` variables `oneid`,`rematching` THEN `nest()` THEN `mutate(new_df=map(data,calc_relative))` THEN `select(-data)` THEN  `unnest(cols = new_df)` THEN `filter(round!=1)`. Include a *copy* of your code in the chunk below (note eval=FALSE)**
+
+```{r echo=TRUE, eval=FALSE}
+
+```
+
+# (5 marks)
+
+**Explain what function `calc_relative()` does (it can be found in the .R file)**
+
+# (10 marks)
+
+**Use dataframe `relative_to_r1` and functions `ggplot()`, `geom_boxplot()`, and `geom_jitter()` to visualize how `choice_relative_to_first_round` differs by treatment `rematching`. Use `labs()` to give the plot an informative title. Make use of function `fix_gg_labs()` to fix the labels of `fourth_plot`**
+
+```{r fourth_chunk}
+
+```
+
+# (0 marks)
+
+**Use dataframe `mydf` and functions `ggplot()`, `stat_density_ridges()`, `scale_fill_viridis_c()` and `facet_wrap()` to create a density ridge plot for `choice` across `rematching` and `round`. Use `labs()` to give the plot an informative title. Use function `fix_gg_labs()` to fix the labels for this fifth_plot.**
+
+```{r}
+fix_gg_labs(fifth_plot)
+```
+
+# (10 marks)
+
+**Use dataframe `relative_to_r1` and  functions `ggplot()`, `stat_density_ridges()`, `scale_fill_viridis_c()` and `facet_wrap()` to create a density ridge plot for `choice_relative_to_first_round` across `rematching` and `round`. Add a `geom_vline()` with arguments `xintercept = 0, col="white",alpha=.5,lwd=2` as a guide. Use `labs()` to give the plot an informative title. Use function `fix_gg_labs()` to fix the labels for this `sixth_plot`.**
+
+```{r}
+
+```
