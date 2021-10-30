@@ -5,10 +5,6 @@
 library("tidyverse") #we use functions from this library.
 library("viridis")
 library("ggridges")
-library("plotly")
-library("ggpubr")
-library("ggrepel")
-library("assertthat")
 library("here")
 ####################which section?
 section <- 1
